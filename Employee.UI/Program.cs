@@ -7,7 +7,11 @@ namespace Employee.UI
 {
     internal class Program
     {
-        EmployeeBAL objBAL = new EmployeeBAL();
+        static EmployeeBAL objBAL;
+        static Program()
+        {
+            objBAL = new EmployeeBAL();
+        }
         static EmployeeModel GetInputEmp()
         {
             Console.WriteLine("Enter Employee Details: ");
@@ -23,8 +27,8 @@ namespace Employee.UI
         static string InsertEmployee()
         {
             EmployeeModel emp = GetInputEmp();
-
-            return "";
+            string res = objBAL.InsertEmployee(emp);
+            return res;
         }
         static void Main(string[] args)
         {            

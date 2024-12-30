@@ -17,7 +17,8 @@ namespace Employee.BAL
         }
         public string InsertEmployee(EmployeeModel employee)
         {
-            return string.Empty;
+            string res = objDAL.InsertEmployee(employee);
+            return res;
         }
     }
 }

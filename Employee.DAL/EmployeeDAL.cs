@@ -40,5 +40,15 @@ namespace Employee.DAL
             }
             return new List<EmployeeModel>();
         }
+        public string InsertEmployee(EmployeeModel employee)
+        {
+            string query = $"insert into Employee values({employee.Eno},'{employee.Ename}','{employee.Job}',{employee.Salary},'{employee.Dname}')";
+            _command = new SqlCommand(query, _connection);
+            _connection.Open();
+            SqlDataReader dr = _command.ExecuteReader();
+            string msg = dr.RecordsAffected+" Record(s) Affected";
+            _connection.Close();
+            return msg;
+        }
     }
 }
